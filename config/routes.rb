@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :scores
   resources :disciplines
   resources :user, only: :show
   devise_for :users,

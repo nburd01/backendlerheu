@@ -16,8 +16,31 @@
 require 'database_cleaner/active_record'
 DatabaseCleaner.clean_with(:truncation)
 
-
 Discipline.destroy_all
+User.destroy_all
+
+
+
+9.times do |r|
+    user = User.create!(
+      email: "a#{r}@yopmail.com",
+      password: 'aaaaaa'
+      );
+end
+
+3.times do |r|
+
+    score = Score.create!(
+          "locaux": "Locaux",
+          "score_locaux": rand(1..6),
+          "visiteurs": "Le Rheu",
+          "score_visiteurs":rand(1..6),
+          "division": "division" ,
+          "equipe": "equipe" ,
+          "categorie":  "categorie"
+    );
+  
+  end
 
 
 Discipline.create(
