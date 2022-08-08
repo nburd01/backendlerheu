@@ -1,10 +1,12 @@
 class ScoresController < ApplicationController
   before_action :set_score, only: %i[ show update destroy ]
+  before_action :add_header
+
 
   # GET /scores
   def index
     @scores = Score.all
-
+    response.headers['X-Total-Count'] = @scores.size
     render json: @scores
   end
 
@@ -47,5 +49,14 @@ class ScoresController < ApplicationController
     # Only allow a list of trusted parameters through.
     def score_params
       params.fetch(:score, {})
+    end
+
+    def add_header
+      headers['Access-Control-Allow-Origin'] = '*'
+      headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
+      headers['Access-Control-Request-Method'] = '*'
+      headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+      headers['Access-Control-Allow-Credentials'] = 'true'
+      headers['Access-Control-Expose-Headers'] = 'X-Total-Count'
     end
 end
