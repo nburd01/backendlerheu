@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'user/show'
   resources :scores
   resources :disciplines
   resources :user, only: :show
