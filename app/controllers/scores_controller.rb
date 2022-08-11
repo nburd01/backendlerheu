@@ -48,8 +48,7 @@ class ScoresController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def score_params
-      params.require(:score).permit(:score_locaux, :score_visiteurs)
-      # params.require(:score).permit(:locaux, :score_locaux, :visiteurs, :score_visiteurs, :division, :equipe, :categorie)
+      params.require(:score).permit(:locaux, :score_locaux, :visiteurs, :score_visiteurs, :division, :equipe, :categorie)
     end
 
     def add_header
