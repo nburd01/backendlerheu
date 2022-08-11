@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  get 'user/show'
   resources :scores
   resources :disciplines
-  resources :user, only: [:show, :update]
+  resources :user
   devise_for :users,
              controllers: {
                sessions: 'users/sessions',
