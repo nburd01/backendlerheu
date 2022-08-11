@@ -1,5 +1,6 @@
 class Users::SessionsController < Devise::SessionsController
     respond_to :json
+    prepend_before_action :verify_signed_out_user, only: :destroy
   
     private
   
@@ -22,5 +23,22 @@ class Users::SessionsController < Devise::SessionsController
   
     def log_out_failure
       render json: { message: 'Hmm nothing happened.' }, status: :unauthorized
+    end
+
+    
+
+    private
+    def verify_signed_out_user
+      if all_signed_out?
+        set_flash_message! :notice, :already_signed_out
+  
+        respond_to_on_destroy
+      end
+    end
+
+    def all_signed_out?
+      users = Devise.mappings.keys.map { |s| warden.user(scope: s, run_callbacks: false) }
+  
+      users.all?(&:blank?)
     end
   end
