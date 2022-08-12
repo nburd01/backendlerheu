@@ -10,9 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema[7.0].define(version: 2022_08_12_092317) do
+=======
 
 ActiveRecord::Schema[7.0].define(version: 2022_08_12_085814) do
 
+>>>>>>> ae71aba06c8d1e758608d74c879ffe7782f2a741
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -58,7 +62,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_12_085814) do
 
   create_table "matches", force: :cascade do |t|
     t.text "content"
-    t.bigint "categorie_id", null: false
     t.bigint "venue_id", null: false
     t.bigint "calendar_id", null: false
     t.bigint "opponent_id", null: false
@@ -66,7 +69,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_12_085814) do
     t.datetime "updated_at", null: false
     t.bigint "competition_id"
     t.index ["calendar_id"], name: "index_matches_on_calendar_id"
-    t.index ["categorie_id"], name: "index_matches_on_categorie_id"
     t.index ["competition_id"], name: "index_matches_on_competition_id"
     t.index ["opponent_id"], name: "index_matches_on_opponent_id"
     t.index ["venue_id"], name: "index_matches_on_venue_id"
