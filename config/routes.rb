@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :categories
   resources :scores
   resources :disciplines
-  resources :user, only: :show
+  resources :user
   devise_for :users,
              controllers: {
                sessions: 'users/sessions',
