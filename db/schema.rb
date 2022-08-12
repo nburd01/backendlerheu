@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_12_083126) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_12_085814) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -62,8 +62,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_12_083126) do
     t.bigint "opponent_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "competition_id"
     t.index ["calendar_id"], name: "index_matches_on_calendar_id"
     t.index ["categorie_id"], name: "index_matches_on_categorie_id"
+    t.index ["competition_id"], name: "index_matches_on_competition_id"
     t.index ["opponent_id"], name: "index_matches_on_opponent_id"
     t.index ["venue_id"], name: "index_matches_on_venue_id"
   end
@@ -141,7 +143,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_12_083126) do
   add_foreign_key "categories", "disciplines"
   add_foreign_key "competitions", "teams"
   add_foreign_key "matches", "calendars"
-  add_foreign_key "matches", "categories", column: "categorie_id"
   add_foreign_key "matches", "opponents"
   add_foreign_key "matches", "venues"
   add_foreign_key "players", "categories", column: "categorie_id"
