@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  resources :matches
+  resources :opponents
+  resources :results
+  resources :calendars
+  resources :venues
+  resources :competitions
+  resources :teams
+  resources :players
+  resources :categories
   resources :scores
   resources :disciplines
   resources :user, only: :show

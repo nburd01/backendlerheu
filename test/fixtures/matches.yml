@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  content: MyText
+  categorie: one
+  venue: one
+  calendar: one
+  opponent: one
+
+two:
+  content: MyText
+  categorie: two
+  venue: two
+  calendar: two
+  opponent: two
