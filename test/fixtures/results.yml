@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  score_le_rheu_reglementaire: 1
+  score_adversaire_reglementaire: 1
+  score_le_rheu_prolongations: 1
+  score_adversaire_prolongations: 1
+  score_le_rheu_penalties: 1
+  score_adversaire_penalties: 1
+
+two:
+  score_le_rheu_reglementaire: 1
+  score_adversaire_reglementaire: 1
+  score_le_rheu_prolongations: 1
+  score_adversaire_prolongations: 1
+  score_le_rheu_penalties: 1
+  score_adversaire_penalties: 1
