@@ -1,6 +1,7 @@
 class DisciplinesController < ApplicationController
   before_action :set_discipline, only: %i[ show update destroy ]
   before_action :add_header
+  before_action :is_admin, only: %i[ update create destroy]
 
   # GET /disciplines
   def index
@@ -58,4 +59,11 @@ class DisciplinesController < ApplicationController
       headers['Access-Control-Allow-Credentials'] = 'true'
       headers['Access-Control-Expose-Headers'] = 'X-Total-Count'
     end
+
+    def is_admin
+      unless current_user.admin == true
+        render json: { message: "Uh Oh, there was a problem" }, status: 400
+      end
+    end
+    
 end

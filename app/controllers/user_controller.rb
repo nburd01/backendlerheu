@@ -1,5 +1,6 @@
 class UserController < ApplicationController
   before_action :authenticate_user!, only: [:update]
+  before_action :is_admin, only: %i[ update create destroy]
   
   def index
     @users = user.all
@@ -28,6 +29,12 @@ class UserController < ApplicationController
 
   def user_params
     params.fetch(:user, {})
+  end
+
+  def is_admin
+    unless current_user.admin == true
+      render json: { message: "Uh Oh, there was a problem" }, status: 400
+    end
   end
   
 end
