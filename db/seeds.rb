@@ -40,7 +40,13 @@ end
           "categorie":  "categorie"
     );
   
-  end
+end
+
+user = User.create!(
+  email: "admin@yopmail.com",
+  password: 'adminpassword',
+  admin: true
+);
 
 
 Discipline.create(
