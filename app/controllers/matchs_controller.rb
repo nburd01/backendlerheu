@@ -1,5 +1,6 @@
 class MatchsController < ApplicationController
   before_action :set_match, only: %i[ show update destroy ]
+  before_action :is_admin, only: %i[ update create destroy]
 
   # GET /matches
   def index
@@ -47,5 +48,11 @@ class MatchsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def match_params
       params.fetch(:match, {})
+    end
+
+    def is_admin
+      unless current_user.admin == true
+        render json: { message: "Uh Oh, there was a problem" }, status: 400
+      end
     end
 end

@@ -1,5 +1,6 @@
 class OpponentsController < ApplicationController
   before_action :set_opponent, only: %i[ show update destroy ]
+  before_action :is_admin, only: %i[ update create destroy]
 
   # GET /opponents
   def index
@@ -47,5 +48,11 @@ class OpponentsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def opponent_params
       params.fetch(:opponent, {})
+    end
+
+    def is_admin
+      unless current_user.admin == true
+        render json: { message: "Uh Oh, there was a problem" }, status: 400
+      end
     end
 end

@@ -1,5 +1,6 @@
 class VenuesController < ApplicationController
   before_action :set_venue, only: %i[ show update destroy ]
+  before_action :is_admin, only: %i[ update create destroy]
 
   # GET /venues
   def index
@@ -47,5 +48,11 @@ class VenuesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def venue_params
       params.fetch(:venue, {})
+    end
+    
+    def is_admin
+      unless current_user.admin == true
+        render json: { message: "Uh Oh, there was a problem" }, status: 400
+      end
     end
 end
