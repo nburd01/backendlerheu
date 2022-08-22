@@ -1,6 +1,6 @@
 class CalendarsController < ApplicationController
   before_action :set_calendar, only: %i[ show update destroy ]
-  before_action :is_admin, only: %i[ update create destroy]
+  # before_action :is_admin, only: %i[ update create destroy]
 
   # GET /calendars
   def index

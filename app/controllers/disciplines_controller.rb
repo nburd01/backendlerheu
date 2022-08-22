@@ -1,7 +1,7 @@
 class DisciplinesController < ApplicationController
   before_action :set_discipline, only: %i[ show update destroy ]
   before_action :add_header
-  before_action :is_admin, only: %i[ update create destroy]
+  # before_action :is_admin, only: %i[ update create destroy]
 
   # GET /disciplines
   def index

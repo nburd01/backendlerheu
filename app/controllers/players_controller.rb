@@ -1,6 +1,6 @@
 class PlayersController < ApplicationController
   before_action :set_player, only: %i[ show update destroy ]
-  before_action :is_admin, only: %i[ update create destroy]
+  # before_action :is_admin, only: %i[ update create destroy]
 
   # GET /players
   def index

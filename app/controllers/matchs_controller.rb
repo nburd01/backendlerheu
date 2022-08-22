@@ -1,6 +1,6 @@
 class MatchsController < ApplicationController
   before_action :set_match, only: %i[ show update destroy ]
-  before_action :is_admin, only: %i[ update create destroy]
+  # before_action :is_admin, only: %i[ update create destroy]
 
   # GET /matches
   def index
