@@ -1,7 +1,7 @@
 class ScoresController < ApplicationController
   before_action :set_score, only: %i[ show update destroy ]
   before_action :add_header
-  before_action :is_admin, only: %i[ update create destroy]
+  # before_action :is_admin, only: %i[ update create destroy put ]
 
 
   # GET /scores
@@ -49,7 +49,7 @@ class ScoresController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def score_params
-      params.require(:score).permit(:locaux, :score_locaux, :visiteurs, :score_visiteurs, :division, :equipe, :categorie)
+      params.require(:score).permit(:locaux, :score_locaux, :visiteurs, :score_visiteurs, :division, :equipe, :categorie, :admin)
     end
 
     def add_header
@@ -66,4 +66,5 @@ class ScoresController < ApplicationController
         render json: { message: "Uh Oh, there was a problem" }, status: 400
       end
     end
+    
 end

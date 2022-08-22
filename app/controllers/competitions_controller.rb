@@ -1,6 +1,6 @@
 class CompetitionsController < ApplicationController
   before_action :set_competition, only: %i[ show update destroy ]
-  before_action :is_admin, only: %i[ update create destroy]
+  # before_action :is_admin, only: %i[ update create destroy]
 
   # GET /competitions
   def index
