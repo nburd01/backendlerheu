@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+  resources :posts
+
+  root 'stories#index'
+
+  resources :stories do
+    resources :comments
+  end
+
+  resources :comments do
+    resources :comments
+  end
   resources :matches
   resources :opponents
   resources :results
