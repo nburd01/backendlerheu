@@ -4,4 +4,5 @@ class Discipline < ApplicationRecord
     has_many :taggables
     has_many :posts, through: :taggables
     has_many :players, through: :categories
+    has_many :teams, through: :categories
 end

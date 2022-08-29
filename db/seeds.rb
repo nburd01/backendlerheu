@@ -21,6 +21,7 @@ User.destroy_all
 Category.destroy_all
 Player.destroy_all
 Score.destroy_all
+Team.destroy_all
 
 
 
@@ -119,3 +120,16 @@ Discipline.create(
             player_img: 'https://www.picclickimg.com/d/l400/pict/373395498468_/237-Dimitri-Payet-%E2%9A%BD-Olympique-Marseille-Om-Sticker.jpg',
             category_id: 1
             )
+  Team.create(
+            name: 'Team 1',
+            category_id: 1
+            )
+
+3.times do |r|
+
+  team = Team.create!(
+    name: "Team #{r}",
+    category_id: 1
+  );
+
+end
