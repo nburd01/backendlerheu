@@ -18,6 +18,9 @@ DatabaseCleaner.clean_with(:truncation)
 
 Discipline.destroy_all
 User.destroy_all
+Category.destroy_all
+Player.destroy_all
+Score.destroy_all
 
 
 
@@ -31,13 +34,13 @@ end
 3.times do |r|
 
     score = Score.create!(
-          "locaux": "Locaux",
-          "score_locaux": rand(1..6),
-          "visiteurs": "Le Rheu",
-          "score_visiteurs":rand(1..6),
-          "division": "division" ,
-          "equipe": "equipe" ,
-          "categorie":  "categorie"
+          locaux: "Locaux",
+          score_locaux: rand(1..3),
+          visiteurs: "Le Rheu",
+          score_visiteurs:rand(1..3),
+          division: "division" ,
+          equipe: "equipe" ,
+          categorie:  "categorie"
     );
   
 end
@@ -76,26 +79,43 @@ Discipline.create(
 
 
  Post.create(
-            title: 'football', 
+            title: Faker::Book.title, 
             postBg:'https://s3.static-footeo.com/1200/uploads/sclerheu/gallery/72709234_2411099205648659_1072033552297623552_o__pz6mhj.jpg'
             )
   Post.create(
-            title: 'beach soccer', 
+            title: Faker::Book.title, 
             postBg:'https://fff.twic.pics/https://media.fff.fr/uploads/images/4d7125038d960b502bef5aa2bdc9021a.png?twic=v1/resize=730'
             )
   Post.create(
-            title: 'futsal', 
+            title: Faker::Book.title, 
             postBg:'https://fff.twic.pics/https://media.fff.fr/uploads/images/ecd02c5415985e752f4aad7c3b61086d.png?twic=v1/resize=730'
             )
   Post.create(
-            title: 'fitfoot', 
+            title: Faker::Book.title, 
             postBg:'https://lfhf.fff.fr/wp-content/uploads/sites/15/2019/12/FitFoot-fille-611x378.png'
             )
   Post.create(
-            title: 'féminines', 
+            title: Faker::Book.title, 
             postBg:'https://imgs.search.brave.com/sitYDMmQPE4PfL4UN-fseK8l4VLQ2TfgrGas5O8TIu8/rs:fit:639:225:1/g:ce/aHR0cHM6Ly90c2Ux/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5S/V0UtaHlHNFVkdHhY/c2hkdk5oUW9nQUFB/QSZwaWQ9QXBp'
             )
   Post.create(
-            title: 'arbitrage', 
+            title: Faker::Book.title, 
             postBg:'https://imgs.search.brave.com/urKZiDMJSGPgW8IfRrWlQpF68aoZ-YmoQG6naYDVSgU/rs:fit:766:225:1/g:ce/aHR0cHM6Ly90c2Uz/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5S/aWlBSmpmaVA0czRW/a1gyVENDVlNRSGFF/bCZwaWQ9QXBp'
+            )
+
+  3.times do |r|
+
+    categorie = Category.create!(
+      name: "categorie #{r}",
+      description: "description #{r}",
+      discipline_id: rand(1..6)
+    );
+  
+  end
+
+
+  Player.create(
+            first_name: Faker::Movies::StarWars.character,
+            player_img: 'https://www.picclickimg.com/d/l400/pict/373395498468_/237-Dimitri-Payet-%E2%9A%BD-Olympique-Marseille-Om-Sticker.jpg',
+            category_id: 1
             )

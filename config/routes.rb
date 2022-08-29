@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :taggables
   resources :posts
 
   root 'stories#index'
