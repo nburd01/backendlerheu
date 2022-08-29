@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_29_102631) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_29_105521) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -134,11 +134,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_29_102631) do
   end
 
   create_table "teams", force: :cascade do |t|
-    t.integer "name"
-    t.bigint "categorie_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["categorie_id"], name: "index_teams_on_categorie_id"
+    t.string "category_id"
+    t.integer "name"
+    t.index ["category_id"], name: "index_teams_on_category_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -172,5 +172,4 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_29_102631) do
   add_foreign_key "players", "categories"
   add_foreign_key "taggables", "disciplines"
   add_foreign_key "taggables", "posts"
-  add_foreign_key "teams", "categories", column: "categorie_id"
 end
