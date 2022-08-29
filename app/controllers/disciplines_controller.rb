@@ -1,18 +1,18 @@
 class DisciplinesController < ApplicationController
   before_action :set_discipline, only: %i[ show update destroy ]
-  before_action :add_header
+  # before_action :add_header
   # before_action :is_admin, only: %i[ update create destroy]
 
   # GET /disciplines
   def index
     @disciplines = Discipline.all
-    response.headers['X-Total-Count'] = @disciplines.size
     render json: @disciplines
   end
 
   # GET /disciplines/1
   def show
     render json: @discipline
+    
   end
 
   # POST /disciplines
@@ -48,17 +48,9 @@ class DisciplinesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def discipline_params
-      params.fetch(:discipline, {})
+      params.require(:discipline).permit(:name, :description, :discipline_img, :discipline_root, :posts)
     end
     
-    def add_header
-      headers['Access-Control-Allow-Origin'] = '*'
-      headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
-      headers['Access-Control-Request-Method'] = '*'
-      headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
-      headers['Access-Control-Allow-Credentials'] = 'true'
-      headers['Access-Control-Expose-Headers'] = 'X-Total-Count'
-    end
 
     def is_admin
       unless current_user.admin == true

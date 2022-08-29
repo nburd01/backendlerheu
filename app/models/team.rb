@@ -1,3 +1,3 @@
 class Team < ApplicationRecord
-  belongs_to :categorie
+  belongs_to :category
 end
