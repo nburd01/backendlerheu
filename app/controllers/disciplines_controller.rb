@@ -11,7 +11,10 @@ class DisciplinesController < ApplicationController
 
   # GET /disciplines/1
   def show
-    render json: @discipline
+    render json: @discipline.as_json(include: {categories: {include: :teams
+      } 
+    } 
+  )
     
   end
 

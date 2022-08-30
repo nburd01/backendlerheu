@@ -3,4 +3,5 @@ class Match < ApplicationRecord
   belongs_to :venue
   belongs_to :calendar
   belongs_to :opponent
+  belongs_to :competition
 end

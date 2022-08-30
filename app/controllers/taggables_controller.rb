@@ -11,7 +11,7 @@ class TaggablesController < ApplicationController
   # GET /taggables/1
   def show
     # render json: @taggable
-    render json: @taggable.as_json(include: :post)
+    render json: @taggable.as_json(include: :discipline)
   end
 
   # POST /taggables

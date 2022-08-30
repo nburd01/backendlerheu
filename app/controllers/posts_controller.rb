@@ -10,7 +10,8 @@ class PostsController < ApplicationController
 
   # GET /posts/1
   def show
-    render json: @post
+    render json: @post.as_json(include: :taggables
+  )
   end
 
   # POST /posts
