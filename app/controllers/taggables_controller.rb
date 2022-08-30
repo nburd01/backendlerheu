@@ -5,7 +5,8 @@ class TaggablesController < ApplicationController
   def index
     @taggables = Taggable.all
 
-    render json: @taggables
+    render json: @taggables.as_json(include: :discipline)
+
   end
 
   # GET /taggables/1

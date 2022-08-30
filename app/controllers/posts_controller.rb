@@ -5,7 +5,8 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
 
-    render json: @posts
+    render json: @posts.as_json(include: {taggables: {include: {discipline:{only: :name} } }}
+  )
   end
 
   # GET /posts/1
