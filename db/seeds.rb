@@ -270,9 +270,25 @@ quasi aliquam eligendi, placeat qui corporis!'
 
   Player.create(
     first_name: Faker::Movies::StarWars.character,
-    player_img: 'https://www.picclickimg.com/d/l400/pict/373395498468_/237-Dimitri-Payet-%E2%9A%BD-Olympique-Marseille-Om-Sticker.jpg',
+    player_img: 'https://pbs.twimg.com/media/FW0OuI6WYAMTyiQ.jpg',
     category_id: 1
             )
+  Player.create(
+    first_name: Faker::Movies::StarWars.character,
+    player_img: 'https://pbs.twimg.com/media/FXHoyBXWYAExgsi?format=jpg&name=large',
+    category_id: 1
+            )
+  Player.create(
+    first_name: Faker::Movies::StarWars.character,
+    player_img: 'https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/292308948_529049519016064_8409079138381676070_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=R909PkCwsFsAX_Xjdhe&_nc_ht=scontent-cdg2-1.xx&oh=00_AT_F2wPq2qjlAE2R8N7s6PAEbrTSJSPbEnuH1yAl1F2reQ&oe=6314C3D9',
+    category_id: 1
+            )
+  Player.create(
+    first_name: Faker::Movies::StarWars.character,
+    player_img: 'https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/291904437_527085255879157_2151959542673043664_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=Y9NdHDQpbdEAX_DZyeK&tn=dUtpWW4hTVM9Dn8f&_nc_ht=scontent-cdg2-1.xx&oh=00_AT-pbV0Q2Gas0XjPYb1gxy1uEOfDoGlALrJuiiN2DN-pyA&oe=6316A713',
+    category_id: 1
+            )
+
   Team.create(
     name: 1,
     category_id: 1
