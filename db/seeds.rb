@@ -290,15 +290,15 @@ quasi aliquam eligendi, placeat qui corporis!'
             )
 
   Team.create(
-    name: 1,
+    name: "1",
     category_id: 1
             )
   Team.create(
-    name: 2,
+    name: "2",
     category_id: 2
             )
   Team.create(
-    name: 3,
+    name: "3",
     category_id: 3
             )
 
