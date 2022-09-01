@@ -5,14 +5,14 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
     # @posts.linkDisciplinesToPost
-    render json: @posts.as_json(include: {taggables: {include: {discipline:{only: :name} } }}
-  )
+    render json: @posts.attributes.merge!(discipline_names: @post.disciplines.map(&:name))
+
   end
 
   # GET /posts/1
   def show
-    render json: @post.as_json(include: {taggables: {include: {discipline:{only: :name} } }}
-    )
+    @post.attributes.merge!(discipline_names: @post.disciplines.map(&:name)).as_json
+    
   end
 
   # POST /posts
