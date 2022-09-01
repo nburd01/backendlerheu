@@ -11,8 +11,8 @@ class PostsController < ApplicationController
 
   # GET /posts/1
   def show
-    render json: @post.as_json(include: :taggables
-  )
+    render json: @post.as_json(include: {taggables: {include: {discipline:{only: :name} } }}
+    )
   end
 
   # POST /posts
