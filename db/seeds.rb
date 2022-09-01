@@ -24,6 +24,7 @@ Player.destroy_all
 Competition.destroy_all
 Score.destroy_all
 Opponent.destroy_all
+Taggable.destroy_all
 # Match.destroy_all
 
 
@@ -329,6 +330,13 @@ quasi aliquam eligendi, placeat qui corporis!'
   Opponent.create(
     club: "U.S. Saint Gilles",
             )
+
+  6.times do |r|
+    taggable = Taggable.create!(
+      post_id: rand(1..6),
+      discipline_id: rand(1..6),
+      );
+end
 
   # Match.create(
   #   competition_id:1,
