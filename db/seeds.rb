@@ -89,10 +89,9 @@ Discipline.create(
 
 
  Post.create(
-    title: Faker::Book.title, 
+    title: "L'équipe première a gagné son premier match", 
     postBg:'https://s3.static-footeo.com/1200/uploads/sclerheu/gallery/72709234_2411099205648659_1072033552297623552_o__pz6mhj.jpg',
-    description:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-molestiae quas vel sint commodi',
+    description:"Ce succès en championnat de R2 permet à l'équipe phare de se hisser à la seconde place, découvrez le résumé et les photos de la rencontre.",
     content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
 molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
 numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
